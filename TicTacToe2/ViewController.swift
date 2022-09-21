@@ -24,10 +24,11 @@ class ViewController: UIViewController {
     var cellButtons: [UIButton] = [UIButton]()
     @IBOutlet weak var btnPlayOrReset: UIButton!
     
-    var game: Game?
     
-    var player1 = Player(name: "Fredrik", number: 1, markerImage: "X")
-    var player2 = Player(name: "Robert", number: 2, markerImage: "O")
+    
+    var game = Game(player1: Player(name: "Fredrik", number: 1, markerImage: "X"), player2: Player(name: "Robert", number: 2, markerImage: "O"))
+    
+    
     
     
     override func viewDidLoad() {
@@ -42,8 +43,7 @@ class ViewController: UIViewController {
         c2.tag = 7
         c3.tag = 8
         self.cellButtons = [self.a1,self.a2,self.a3,self.b1,self.b2,self.b3,self.c1,self.c2,self.c3]
-        game = Game(player1: player1, player2: player2)
-        lblTop.text = "\(game!.currentPlayer.name)'s turn!"
+        lblTop.text = "\(game.currentPlayer.name)'s turn!"
     }
 
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
@@ -53,43 +53,45 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onPlayOrReset(_ sender: UIButton) {
-        game = Game(player1: player1, player2: player2)
+        //game = Game(player1: player1, player2: player2)
+        game.resetGame()
         for button in cellButtons {
             button.setTitle(nil, for: .normal)
+            button.isUserInteractionEnabled = true
         }
         btnPlayOrReset.setTitle("Reset", for: .normal)
     }
     
     @IBAction func vadSomHelst(_ sender: UIButton) {
-        var result = game?.addMove(position: sender.tag)
+        var result = game.addMove(position: sender.tag)
     }
     
     @IBAction func onCellSelected(_ sender: UIButton) {
         
-        if let game = game {
-
             let result = game.addMove(position: sender.tag)
             print("PSelected: \(game.previousPlayer?.number ?? 5)")
 
+        
+        func setParams() {
+            sender.setTitle(game.previousPlayer?.markerImage ?? "", for: .normal)
+            sender.isUserInteractionEnabled = false
+        }
             
             switch result {
             case game.GAME_CONTINUE:
-                //sender.setBackgroundImage(UIImage.init(named: game.previousPlayer?.markerImage ?? ""), for: .normal)
-                sender.setTitle(game.previousPlayer?.markerImage ?? "", for: .normal)
+                setParams()
                 lblTop.text = "\(game.currentPlayer.name)'s turn!"
             case game.RESULT_DRAW:
-                //sender.setBackgroundImage(UIImage.init(named: game.previousPlayer?.markerImage ?? ""), for: .normal)
-                sender.setTitle(game.previousPlayer?.markerImage ?? "", for: .normal)
+                setParams()
                 lblTop.text = "Game is a draw!"
                 btnPlayOrReset.setTitle("Play again", for: .normal)
             case game.RESULT_PLAYER1:
-                //sender.setBackgroundImage(UIImage.init(named: game.previousPlayer?.markerImage ?? ""), for: .normal)
-                sender.setTitle(game.previousPlayer?.markerImage ?? "", for: .normal)
+                setParams()
                 lblTop.text = "\(game.player1.name) has won!"
                 btnPlayOrReset.setTitle("Play again", for: .normal)
             case game.RESULT_PLAYER2:
                 //sender.setBackgroundImage(UIImage.init(named: game.previousPlayer?.markerImage ?? ""), for: .normal)
-                sender.setTitle(game.previousPlayer?.markerImage ?? "", for: .normal)
+                setParams()
                 lblTop.text = "\(game.player2.name) has won!"
                 btnPlayOrReset.setTitle("Play again", for: .normal)
             case game.GAME_ENDED:
@@ -97,8 +99,6 @@ class ViewController: UIViewController {
                 print("Game has already ended!")
             default: lblTop.text = "Error!"
             }
-            
-        }
         
     }
     

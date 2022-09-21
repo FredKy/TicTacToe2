@@ -7,13 +7,6 @@
 
 import Foundation
 
-
-struct Player {
-    var name: String
-    var number: Int
-    var markerImage: String
-}
-
 class Game {
     
     let GAME_CONTINUE = 0, CELL_EMPTY = 0
@@ -41,6 +34,11 @@ class Game {
     var previousPlayer: Player?
     var currentPlayer: Player
     
+    func resetGame() {
+        board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        self.currentPlayer = player1
+        self.gameStatus = GAME_CONTINUE
+    }
     
     func endGame(result: Int) -> Int {
         switchPlayer()
