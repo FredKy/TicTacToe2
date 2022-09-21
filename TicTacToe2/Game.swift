@@ -38,7 +38,7 @@ class Game {
     
     var gameStatus: Int
     
-    //var previousPlayer: Player?
+    var previousPlayer: Player?
     var currentPlayer: Player
     
     
@@ -64,10 +64,10 @@ class Game {
     
     func switchPlayer() {
         if currentPlayer.number == 1 {
-            //previousPlayer = player1
+            previousPlayer = player1
             currentPlayer = player2
         } else {
-            //previousPlayer = player2
+            previousPlayer = player2
             currentPlayer = player1
         }
     }
@@ -92,21 +92,21 @@ class Game {
             return endGame(result: result)
         }
 
-//        var count = 0
-//
-//        for cell in board {
-//            if cell != 0 {
-//                count += 1
-//            }
-//        }
-//
-//        if count > 8 {
-//            return endGame(result: RESULT_DRAW)
-//        }
-        
-        if (board.filter{$0 != 0}.count == 9) {
+        var count = 0
+
+        for cell in board {
+            if cell != 0 {
+                count += 1
+            }
+        }
+
+        if count > 8 {
             return endGame(result: RESULT_DRAW)
         }
+        
+//        if (board.filter{$0 != 0}.count == 9) {
+//            return endGame(result: RESULT_DRAW)
+//        }
         
         switchPlayer()
         
