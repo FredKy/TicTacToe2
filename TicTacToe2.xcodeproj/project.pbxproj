@@ -16,6 +16,7 @@
 		D029DEA028DB055B0062A13D /* TicTacToe2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029DE9F28DB055B0062A13D /* TicTacToe2Tests.swift */; };
 		D029DEAA28DB055C0062A13D /* TicTacToe2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029DEA928DB055C0062A13D /* TicTacToe2UITests.swift */; };
 		D029DEAC28DB055C0062A13D /* TicTacToe2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029DEAB28DB055C0062A13D /* TicTacToe2UITestsLaunchTests.swift */; };
+		D029DEB928DB05A10062A13D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029DEB828DB05A10062A13D /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		D029DEA528DB055C0062A13D /* TicTacToe2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToe2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D029DEA928DB055C0062A13D /* TicTacToe2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToe2UITests.swift; sourceTree = "<group>"; };
 		D029DEAB28DB055C0062A13D /* TicTacToe2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToe2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D029DEB828DB05A10062A13D /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				D029DE9128DB055B0062A13D /* Assets.xcassets */,
 				D029DE9328DB055B0062A13D /* LaunchScreen.storyboard */,
 				D029DE9628DB055B0062A13D /* Info.plist */,
+				D029DEB828DB05A10062A13D /* Game.swift */,
 			);
 			path = TicTacToe2;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				D029DE8D28DB05560062A13D /* ViewController.swift in Sources */,
 				D029DE8928DB05560062A13D /* AppDelegate.swift in Sources */,
 				D029DE8B28DB05560062A13D /* SceneDelegate.swift in Sources */,
+				D029DEB928DB05A10062A13D /* Game.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
