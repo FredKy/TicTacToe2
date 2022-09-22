@@ -18,6 +18,7 @@
 		D029DEAC28DB055C0062A13D /* TicTacToe2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029DEAB28DB055C0062A13D /* TicTacToe2UITestsLaunchTests.swift */; };
 		D029DEB928DB05A10062A13D /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029DEB828DB05A10062A13D /* Game.swift */; };
 		D029DEBC28DB3F740062A13D /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029DEBB28DB3F740062A13D /* Player.swift */; };
+		D029DEBE28DC99940062A13D /* MultiplayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D029DEBD28DC99940062A13D /* MultiplayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		D029DEAB28DB055C0062A13D /* TicTacToe2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacToe2UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D029DEB828DB05A10062A13D /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		D029DEBB28DB3F740062A13D /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		D029DEBD28DC99940062A13D /* MultiplayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 				D029DE8A28DB05560062A13D /* SceneDelegate.swift */,
 				D029DE8C28DB05560062A13D /* ViewController.swift */,
 				D029DE8E28DB05560062A13D /* Main.storyboard */,
+				D029DEBD28DC99940062A13D /* MultiplayerViewController.swift */,
 				D029DE9128DB055B0062A13D /* Assets.xcassets */,
 				D029DE9328DB055B0062A13D /* LaunchScreen.storyboard */,
 				D029DE9628DB055B0062A13D /* Info.plist */,
@@ -273,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D029DE8D28DB05560062A13D /* ViewController.swift in Sources */,
+				D029DEBE28DC99940062A13D /* MultiplayerViewController.swift in Sources */,
 				D029DE8928DB05560062A13D /* AppDelegate.swift in Sources */,
 				D029DE8B28DB05560062A13D /* SceneDelegate.swift in Sources */,
 				D029DEBC28DB3F740062A13D /* Player.swift in Sources */,
