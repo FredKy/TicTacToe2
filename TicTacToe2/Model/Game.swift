@@ -62,7 +62,18 @@ class Game {
 //        }
 //
 //    }
-    
+    func getRandomSquare() -> Int {
+        let idxs = board.enumerated().filter{
+            $0.element == 0
+        }.map{
+            $0.offset
+        }
+        print(idxs)
+        let r = idxs.randomElement()
+        print(r!)
+        
+        return r!
+    }
     
     func switchPlayer() {
         if currentPlayer.number == 1 {
@@ -109,7 +120,7 @@ class Game {
         func addPoint(playerNumber: Int) {
             if player1.number == playerNumber {
                 player1.score += 1
-            } else {
+            } else if player2.number == playerNumber {
                 player2.score += 1
             }
         }

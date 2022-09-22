@@ -13,12 +13,14 @@ struct Player {
     var number: Int
     var markerImage: String
     var score: Int
+    var ai: Bool
     
-    init(name: String, number: Int, markerImage: String, score: Int) {
+    init(name: String, number: Int, markerImage: String, score: Int, ai: Bool) {
         self.name = name
         self.number = number
         self.markerImage = markerImage
         self.score = score
+        self.ai = ai
     }
 }
 
