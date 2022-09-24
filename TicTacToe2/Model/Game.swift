@@ -7,13 +7,6 @@
 
 import Foundation
 
-
-struct Player {
-    var name: String
-    var number: Int
-    var markerImage: String
-}
-
 class Game {
     
     let GAME_CONTINUE = 0, CELL_EMPTY = 0
@@ -41,6 +34,15 @@ class Game {
     var previousPlayer: Player?
     var currentPlayer: Player
     
+    func resetGame() {
+        board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+        self.currentPlayer = player1
+//        let res = getGameResult()
+//        switch res {
+//
+//        }
+        self.gameStatus = GAME_CONTINUE
+    }
     
     func endGame(result: Int) -> Int {
         switchPlayer()
@@ -60,7 +62,18 @@ class Game {
 //        }
 //
 //    }
-    
+    func getRandomSquare() -> Int {
+        let idxs = board.enumerated().filter{
+            $0.element == 0
+        }.map{
+            $0.offset
+        }
+        print(idxs)
+        let r = idxs.randomElement()
+        print(r!)
+        
+        return r!
+    }
     
     func switchPlayer() {
         if currentPlayer.number == 1 {
@@ -91,22 +104,10 @@ class Game {
         if result != GAME_CONTINUE {
             return endGame(result: result)
         }
-
-        var count = 0
-
-        for cell in board {
-            if cell != 0 {
-                count += 1
-            }
-        }
-
-        if count > 8 {
+        
+        if (board.filter{$0 != 0}.count == 9) {
             return endGame(result: RESULT_DRAW)
         }
-        
-//        if (board.filter{$0 != 0}.count == 9) {
-//            return endGame(result: RESULT_DRAW)
-//        }
         
         switchPlayer()
         
@@ -116,11 +117,20 @@ class Game {
     
     func getGameResult() -> Int {
 
+        func addPoint(playerNumber: Int) {
+            if player1.number == playerNumber {
+                player1.score += 1
+            } else if player2.number == playerNumber {
+                player2.score += 1
+            }
+        }
+        
         print(board)
         // Row 1
     
         if board[0] == board[1] && board[0] == board[2] && board[0] != 0 {
             print("Player \(board[0]) has won!")
+            addPoint(playerNumber: board[0])
             return board[0]
         }
         
@@ -128,6 +138,7 @@ class Game {
         
         if board[3] == board[4] && board[3] == board[5] && board[3] != 0 {
             print("Player \(board[3]) has won!")
+            addPoint(playerNumber: board[3])
             return board[3]
         }
         
@@ -135,6 +146,7 @@ class Game {
         
         if board[6] == board[7] && board[6] == board[8] && board[6] != 0 {
             print("Player \(board[6]) has won!")
+            addPoint(playerNumber: board[6])
             return board[6]
         }
         
@@ -142,32 +154,37 @@ class Game {
         
         if board[0] == board[3] && board[0] == board[6] && board[0] != 0 {
             print("Player \(board[0]) has won!")
+            addPoint(playerNumber: board[0])
             return board[0]
         }
         
         // Column 2
         
         if board[1] == board[4] && board[1] == board[7] && board[1] != 0 {
-            print("Player \(board[0]) has won!")
-            return board[0]
+            print("Player \(board[1]) has won!")
+            addPoint(playerNumber: board[1])
+            return board[1]
         }
         
         // Column 3
         
         if board[2] == board[5] && board[2] == board[8] && board[2] != 0 {
             print("Player \(board[2]) has won!")
-            return board[0]
+            addPoint(playerNumber: board[2])
+            return board[2]
         }
         
         // Diagonal row
         
         if board[0] == board[4] && board[0] == board[8] && board[0] != 0 {
             print("Player \(board[0]) has won!")
+            addPoint(playerNumber: board[0])
             return board[0]
         }
         
         if board[2] == board[4] && board[2] == board[6] && board[2] != 0 {
             print("Player \(board[2]) has won!")
+            addPoint(playerNumber: board[2])
             return board[2]
         }
     
